@@ -1,0 +1,630 @@
+@charset "UTF-8";
+
+@import "variables";
+
+
+#voices-list {
+  @include padding(modular-scale(4) null null);
+
+  h2 {
+    text-align: left;
+  }
+
+  .contents {
+    @include span-columns(6);
+    @include omega(2n);
+    @include margin(null null 4rem);
+  }
+
+  .contents > a {
+    position: relative;
+    display: block;
+    width: 482px;
+    @include margin(0 auto);
+    @include padding(0);
+    @include user-select(none);
+    @include transition(opacity .3s ease-in-out);
+
+    &:hover {
+      @include transition(opacity .3s ease-in-out);
+    }
+  }
+
+  .contents__business {
+    @include position(absolute, -9px auto auto -9px);
+    width: 120px;
+    @include padding(.5rem 0);
+    font-size: .8rem;
+    font-weight: bold;
+    color: $bgcolor-base;
+    text-align: center;
+    background-color: $bgcolor-green;
+    &:before {
+      content: ' ';
+      display: block;
+      position: absolute;
+      bottom: -9px;
+      width: 9px;
+      height: 9px;
+      border-top: 9px solid $bgcolor-deep-green;
+      border-left: 9px solid transparent;
+    }
+  }
+
+  .contents__image {
+    @include margin(null null modular-scale(0));
+    text-align: center;
+
+    img {
+      width: 482px;
+      height: 300px;
+      border-radius: 3px;
+
+      @include media($tablet) {
+        height: auto;
+      }
+    }
+  }
+
+  .contents__summary {
+    @include margin(null null modular-scale(0));
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: $bgcolor-black;
+    line-height: 1.4;
+  }
+  .contents__company {
+    text-align: right;
+    color: $bgcolor-black;
+    line-height: 1;
+  }
+  .contents__users {
+    text-align: right;
+    font-size: .8rem;
+    color: $color-gray;
+  }
+
+
+  @include media($tablet) {
+    .contents {
+      @include span-columns(12);
+      @include omega(1n);
+    }
+    .contents > a {
+      width: auto;
+      max-width: 482px;
+      @include margin(0 auto);
+    }
+
+    .contents__summary {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+
+//-----------------------------------------------------------------------------
+
+#interview-top-image {
+  position: relative;
+  width: 100%;
+  @include padding(null null 0);
+
+  img {
+    width: 100%;
+    max-height: 580px;
+
+    @include media($tablet) {
+      min-height: 0;
+    }
+  }
+}
+
+
+#interview-top-text {
+  position: absolute;
+  width: 100%;
+  @include margin(-72px null null);
+  @include padding(0);
+  background: transparent;
+
+  h2 {
+    font-size: 1.8rem;
+    font-weight: normal;
+  }
+  h3 {
+    font-size: 1rem;
+    font-weight: bold;
+    @include margin(null null .2rem);
+  }
+  h4 {
+    color: $bgcolor-base;
+  }
+  p {
+    @include margin(null null 0);
+  }
+  .contents {
+    @include span-columns(6);
+    @include padding(modular-scale(2));
+    color: $bgcolor-base;
+    background: $bgcolor-green;
+  }
+
+
+  @include media($tablet) {
+    position: static;
+    @include margin(0);
+    @include padding(modular-scale(2) null modular-scale(0));
+
+    h2 {
+      text-align: left;
+    }
+    h3 {
+      text-align: left;
+      color: $color-gray;
+    }
+    h4 {
+      text-align: left;
+      color: $bgcolor-green;
+    }
+    p {
+      color: $color-gray;
+    }
+    .contents {
+      @include span-columns(12);
+      @include padding(0);
+      color: $bgcolor-black;
+      background: transparent;
+    }
+  }
+}
+
+
+#interview-company {
+  .contents {
+    @include span-columns(6);
+    @include shift(6);
+    @include omega();
+    @include padding(null null null modular-scale(2));
+  }
+
+
+  @include media($tablet) {
+    @include padding(0);
+
+    .contents {
+      @include span-columns(12);
+      @include shift(0);
+      @include padding(0);
+    }
+  }
+}
+
+
+.section.section-interview {
+  @include padding(null null 0);
+
+  h2 {
+    position: relative;
+    @include margin(null null modular-scale(2));
+    @include padding(0 0 0 modular-scale(1));
+    line-height: 2.4rem;
+    text-align: left;
+    font-size: 1.7rem;
+    font-weight: normal;
+    color: $bgcolor-black;
+    &:before {
+      content: ' ';
+      position: absolute;
+      display: block;
+      top: .2rem;
+      left: 0;
+      width: 4px;
+      height: .9rem;
+      background: $bgcolor-green;
+    }
+    &:after {
+      content: ' ';
+      position: absolute;
+      display: block;
+      top: 1.1rem;
+      left: 0;
+      width: 4px;
+      height: .9rem;
+      background: $bgcolor-black;
+    }
+
+    & > span {
+      color: $bgcolor-green;
+    }
+  } // h2
+
+  .contents-wrapper {
+    .contents-summary {
+      @include span-columns(6);
+    }
+    .contents-image {
+      @include span-columns(6);
+    }
+    .contents-image   + .contents-image,
+    .contents-summary + .contents-image {
+      text-align: right;
+    }
+
+    &.small-image {
+      .contents-summary {
+        @include span-columns(7);
+      }
+      .contents-image {
+        @include span-columns(5);
+      }
+    }
+    &.big-image {
+      .contents-summary {
+        @include span-columns(5);
+      }
+      .contents-image {
+        @include span-columns(7);
+      }
+    }
+  }
+  .contents-wrapper + .contents-wrapper {
+    @include margin(modular-scale(2) null null);
+  }
+
+  .interview__question {
+    position: relative;
+    @include margin(null null 1.5rem);
+    @include padding(null null null 42px);
+    font-size: 1.1rem;
+    font-style: italic;
+    font-weight: bold;
+    color: $bgcolor-deep-green;
+
+    &:before {
+      content: ' ';
+      @include position(absolute, 14px 0 0 0);
+      width: 30px;
+      height: 1px;
+      border-bottom: 1px solid $bgcolor-deep-green;
+    }
+  }
+  .interview__answer {
+    @include margin(null null 0);
+  }
+  .interview__question + .interview__question,
+  .interview__answer   + .interview__question,
+  .interview__question + .interview__answer,
+  .interview__answer   + .interview__answer {
+    @include margin(1.5rem null null);
+  }
+  .interviewer__blue  { font-weight: bold; color: $bgcolor-blue;  }
+  .interviewer__green { font-weight: bold; color: $bgcolor-green; }
+  .interviewer__pink  { font-weight: bold; color: $bgcolor-pink;  }
+  .interviewer__red   { font-weight: bold; color: $bgcolor-red;   }
+
+
+  @include direction-context(right-to-left) {
+    .contents-wrapper.rtl {
+      .contents-summary {
+        @include span-columns(6);
+        @include margin(null 0 null null);
+      }
+      .contents-image {
+        @include span-columns(6);
+        @include margin(null 0 null null);
+        text-align: right;
+      }
+    }
+  }
+
+
+  @include media($tablet) {
+    @include padding(modular-scale(2) null null);
+
+    .contents-wrapper,
+    .contents-wrapper.rtl {
+      &,
+      &.small-image,
+      &.big-image {
+        .contents-summary {
+          @include span-columns(12);
+          @include margin(null 0);
+        }
+        .contents-image {
+          @include span-columns(12);
+          @include margin(null 0);
+          text-align: center;
+        }
+      }
+
+      .contents + .contents {
+        @include margin(modular-scale(1) null null);
+      }
+
+      .contents-image   + .contents-image,
+      .contents-summary + .contents-image {
+        text-align: center;
+      }
+    }
+
+    .interview__question {
+      @include margin(null null 0);
+    }
+  }
+} // .section.section-interview
+
+
+//.contents__interview__answer + .contents__interview__question {
+//  margin-top: 4em;
+//}
+//
+//
+//.contents__interview__container {
+//  @include span-columns(12);
+//  @include omega();
+//  margin-top: 1em;
+//  margin-bottom: 3em;
+//
+//  @include media($tablet) {
+//    margin-bottom: 0;
+//  }
+//
+//  }
+//  .contents__interview__summary {
+//    @include span-columns(6 of 12);
+//
+//    @include media($tablet) {
+//      @include span-columns(12 of 12);
+//      margin-bottom: 2em;
+//    }
+//  }
+//
+//  &.bigger__image {
+//    .contents__interview__image {
+//      @include span-columns(7 of 12);
+//
+//      @include media($tablet) {
+//        @include span-columns(12 of 12);
+//      }
+//    }
+//    .contents__interview__summary {
+//      @include span-columns(5 of 12);
+//
+//      @include media($tablet) {
+//        @include span-columns(12 of 12);
+//      }
+//    }
+//  }
+//
+//  &.smaller__image {
+//    .contents__interview__image {
+//      @include span-columns(4 of 12);
+//
+//      @include media($tablet) {
+//        @include span-columns(12 of 12);
+//      }
+//    }
+//    .contents__interview__summary {
+//      @include span-columns(8 of 12);
+//
+//      @include media($tablet) {
+//        @include span-columns(12 of 12);
+//      }
+//    }
+//  }
+//}
+
+
+
+//----------------------------
+//
+//
+//.contents__interview__top__text__fukata {
+//  @include position(absolute, modular-scale(3)+50 auto auto 0);
+//  width: 50%;
+//  max-width: 640px;
+//  height: 180px;
+//  padding: 1em;
+//  font-size: 38px;
+//  color: $bgcolor-base;
+//  line-height: 50px;
+//  background: rgba(0,0,0,0.5);
+//
+//  @include media($sxga) {
+//    height: 139px;
+//    line-height: 42px;
+//    font-size: 28px;
+//  }
+//  @include media($xga) {
+//    height: 105px;
+//    line-height: 32px;
+//    font-size: 20px;
+//  }
+//  @include media($tablet) {
+//    top: 80px;
+//    height: 66px;
+//    line-height: 20px;
+//    font-size: 13px;
+//  }
+//  @include media($mobile) {
+//    top: 80px;
+//    height: 52px;
+//    line-height: 16px;
+//    font-size: 10px;
+//  }
+//}
+//
+//
+////----------------------------
+//
+//
+//.contents__interview__top__text__tedxutokyo {
+//  @include position(absolute, auto auto 100px 0);
+//  width: 50%;
+//  height: 210px;
+//  padding: 1em;
+//  font-size: 30px;
+//  color: $bgcolor-base;
+//  line-height: 50px;
+//  background: rgba(0,0,0,0.5);
+//
+//  @include media($sxga) {
+//    height: 175px;
+//    line-height: 42px;
+//    font-size: 24px;
+//  }
+//  @include media($xga) {
+//    height: 130px;
+//    line-height: 32px;
+//    font-size: 18px;
+//  }
+//  @include media($tablet) {
+//    bottom: 50px;
+//    width: 60%;
+//    height: 100px;
+//    line-height: 24px;
+//    font-size: 16px;
+//  }
+//  @include media($mobile) {
+//    bottom: 60px;
+//    width: 70%;
+//    height: 84px;
+//    line-height: 20px;
+//    font-size: 11px;
+//  }
+//}
+//
+//
+////----------------------------
+//
+//
+//.contents__interview__top__text__asklepios {
+//  @include position(absolute, modular-scale(3)+100 0 0 0);
+//  width: 50%;
+//  height: 160px;
+//  padding: 1em;
+//  font-size: 32px;
+//  color: $bgcolor-base;
+//  line-height: 50px;
+//  background: rgba(0,0,0,.5);
+//
+//  @include media($xga) {
+//    height: 120px;
+//    line-height: 38px;
+//    font-size: 22px;
+//  }
+//  @include media($tablet) {
+//    height: 90px;
+//    line-height: 30px;
+//    font-size: 16px;
+//  }
+//  @include media($mobile) {
+//    top: 100px;
+//    width: 55%;
+//    height: 60px;
+//    line-height: 20px;
+//    font-size: 11px;
+//  }
+//}
+//
+//
+////----------------------------
+//
+//
+//.contents__interview__top__text__redvision {
+//  @include position(absolute, auto auto 100px 0);
+//  width: 50%;
+//  height: 160px;
+//  padding: 1em;
+//  font-size: 32px;
+//  color: $bgcolor-base;
+//  line-height: 50px;
+//  background: rgba(0,0,0,.5);
+//
+//  @include media($xga) {
+//    height: 120px;
+//    line-height: 38px;
+//    font-size: 22px;
+//  }
+//  @include media($tablet) {
+//    height: 90px;
+//    line-height: 30px;
+//    font-size: 16px;
+//  }
+//  @include media($mobile) {
+//    bottom: 50px;
+//    width: 55%;
+//    height: 60px;
+//    line-height: 20px;
+//    font-size: 11px;
+//  }
+//}
+//
+//
+////----------------------------
+//
+//
+//.contents__interview__top__text__harbor {
+//  @include position(absolute, auto 0 100px auto);
+//  width: 45%;
+//  height: 160px;
+//  padding: 1em;
+//  font-size: 32px;
+//  color: $bgcolor-base;
+//  line-height: 50px;
+//  background: rgba(0,0,0,.5);
+//
+//  @include media($xga) {
+//    height: 120px;
+//    line-height: 38px;
+//    font-size: 22px;
+//  }
+//  @include media($tablet) {
+//    width: 50%;
+//    height: 90px;
+//    line-height: 30px;
+//    font-size: 16px;
+//  }
+//  @include media($mobile) {
+//    bottom: 50px;
+//    height: 60px;
+//    line-height: 20px;
+//    font-size: 11px;
+//  }
+//}
+//
+//
+////----------------------------
+//
+//
+//.contents__interview__top__text__vitabrid {
+//  @include position(absolute, auto auto 100px 0);
+//  width: 5 5%;
+//  height: 160px;
+//  padding: 1em;
+//  font-size: 32px;
+//  color: $bgcolor-base;
+//  line-height: 50px;
+//  background: rgba(0,0,0,.5);
+//
+//  @include media($xga) {
+//    height: 120px;
+//    line-height: 38px;
+//    font-size: 22px;
+//  }
+//  @include media($tablet) {
+//    width: 60%;
+//    height: 90px;
+//    line-height: 30px;
+//    font-size: 16px;
+//  }
+//  @include media($mobile) {
+//    bottom: 60px;
+//    width: 55%;
+//    height: 60px;
+//    line-height: 20px;
+//    font-size: 11px;
+//  }
+//}
+//

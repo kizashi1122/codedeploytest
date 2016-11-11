@@ -1,0 +1,61 @@
+<!doctype html>
+<html class="no-js" lang="ja">
+{{> _head title="ログイン | リレーション (Re:lation)"}}
+
+<body>
+<div class="wrapper">
+  <div class="wrapper-inner">
+
+    <div class="layout__contents">
+      {{> _section-nav}}
+
+      <header id="login-header" class="section section-header">
+        <div class="section__container">
+          <h4>LOGIN</h4>
+          <h2>ログイン</h2>
+        </div>
+      </header>
+
+
+      <section id="login-main" class="section">
+        <div class="section__container">
+          <div class="contents-wrapper">
+            <div class="contents contents-alert hidden">
+              <i class="fa fa-warning"></i>
+              指定されたドメインは見つかりませんでした
+            </div>
+          </div>
+
+          <div class="contents-wrapper">
+            <div class="contents contents-input">
+            <form id="move-relationapp">
+              <p class="message">
+                任意のドメイン名をご入力ください。
+              </p>
+              <div class="domain-wrapper">
+                <input type="text" name="subdomain" placeholder="domain">
+                <span>.relationapp.jp</span>
+              </div>
+              <div class="button-wrapper">
+                <button type="submit">移動する</button>
+              </div>
+            </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      {{> _section-contact}}
+      {{> _section-back-to-top}}
+    </div>
+
+
+    {{> _footer}}
+
+  </div><!-- .wrapper-inner -->
+</div><!-- .wrapper -->
+
+{{> _script}}
+</body>
+</html>

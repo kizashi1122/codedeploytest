@@ -1,0 +1,97 @@
+@charset "UTF-8";
+
+//
+// IMPORT
+//
+@import "variables";
+
+
+#terms {
+  @include padding(modular-scale(3) null null);
+
+  h2 {
+    text-align: left;
+  }
+  h3 {
+    position: relative;
+    margin: modular-scale(1) 0;
+    padding: modular-scale(1) 0 .6rem modular-scale(1);
+    border-bottom: 1px solid $border-color-gray;
+    text-align: left;
+    font-size: 1.6rem;
+    color: $bgcolor-black;
+    font-weight: bold;
+    &:before {
+      content: ' ';
+      position: absolute;
+      display: block;
+      top: modular-scale(1);
+      left: 0;
+      width: 4px;
+      height: .9rem;
+      background: $bgcolor-green;
+    }
+    &:after {
+      content: ' ';
+      position: absolute;
+      display: block;
+      top: #{modular-scale(1) + .9rem};
+      left: 0;
+      width: 4px;
+      height: .9rem;
+      background: $bgcolor-black;
+    }
+  }
+  h4 {
+    margin: modular-scale(1) 0;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: $bgcolor-black;
+    text-align: left;
+  }
+
+  p {
+    padding: 0 modular-scale(0);
+  }
+
+  ol {
+    list-style-type: decimal;
+    margin-bottom: modular-scale(1);
+    padding-left: modular-scale(1);
+
+    &>li {
+      margin-bottom: modular-scale(0);
+    }
+    &>li>ol {
+      margin-top: modular-scale(1);
+
+      &>li {
+        margin-bottom: 6px;
+      }
+    }
+  }
+
+  table {
+    margin: modular-scale(1) 0;
+
+    p {
+      padding: 0;
+    }
+  }
+  th {
+    width: 25%;
+    padding: modular-scale(1);
+    border: 1px solid #ddd;
+    background: $bgcolor-gray;
+  }
+  td {
+    width: 75%;
+    padding: modular-scale(1);
+    border: 1px solid #ddd;
+    background: $bgcolor-base;
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+} // #terms

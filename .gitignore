@@ -1,0 +1,7 @@
+.idea
+.publish
+node_modules
+public/relation
+public/vendor
+public/*.html
+vendor/*

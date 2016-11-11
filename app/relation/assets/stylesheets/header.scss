@@ -1,0 +1,35 @@
+@charset "UTF-8";
+
+@import "variables";
+
+
+.header__wrapper {
+  @include outer-container();
+  @include padding(0 modular-scale(2));
+  height: $height-header;
+  line-height: $height-header;
+}
+
+
+.header__title {
+  @include span-columns(6);
+  font-weight: bold;
+}
+
+
+.header__social {
+  @include span-columns(6);
+  @include omega();
+  height: $height-header;
+  text-align: right;
+}
+.header__social > li {
+  display: inline-block;
+  height: $height-header;
+  line-height: $height-header;
+  margin-right: modular-scale(1);
+  font-size: modular-scale(1);
+}
+.header__social > li > a {
+  color: $bgcolor-base;
+}

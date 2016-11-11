@@ -1,0 +1,180 @@
+@charset "UTF-8";
+
+@import "variables";
+
+
+.footer__wrapper {
+  height: 100%;
+  @include padding(modular-scale(2) null);
+  @include outer-container();
+  @include clearfix();
+  color: $color-footer;
+
+  @include media($tablet) {
+    @include outer-container(rem(600));
+    @include padding(null modular-scale(1));
+  }
+}
+
+.footer__relation {
+  @include span-columns(5);
+  border-right: 1px dotted $bgcolor-base;
+
+  nav > ul {
+    & > li:nth-child(odd) {
+      @include span-columns(3 of 5);
+    }
+    & > li:nth-child(even) {
+      @include span-columns(2 of 5);
+      @include omega();
+    }
+
+    & > li > a {
+      line-height: 2;
+      font-size: 1rem;
+      color: $color-footer;
+    }
+  }
+
+  @include media($tablet) {
+    @include span-columns(12);
+    @include omega();
+    @include margin(null null 2rem);
+    border-right: 0;
+
+    nav > ul > li {
+      @include margin(null null .6rem);
+
+      &:nth-child(odd) {
+        @include span-columns(6 of 12);
+      }
+      &:nth-child(even) {
+        @include span-columns(6 of 12);
+        @include omega();
+      }
+    }
+    nav > ul > li > a {
+      @include padding(1rem 0 1rem 1rem);
+      display: block;
+      line-height: 1;
+      font-size: 1rem;
+      border: 1px solid $bgcolor-deep-green;
+      border-radius: 3px;
+      &:hover {
+        background: $bgcolor-green;
+      }
+    }
+  }
+}
+
+.footer__ingage {
+  @include span-columns(4);
+  @include padding(null null null 2rem);
+
+  nav > ul > li > a {
+    line-height: 2;
+    font-size: 14px;
+    color: $color-footer;
+  }
+
+  @include media($tablet) {
+    @include span-columns(12);
+    @include omega();
+    @include margin(null null 2rem);
+    @include padding(null null null 0);
+
+    nav > ul > li {
+      @include margin(null null .6rem);
+    }
+    nav > ul > li > a {
+      @include padding(1rem 0 1rem 1rem);
+      display: block;
+      line-height: 1;
+      font-size: 1rem;
+      border: 1px solid $bgcolor-deep-green;
+      border-radius: 3px;
+      &:hover {
+        background: $bgcolor-green;
+      }
+    }
+  }
+}
+
+.footer__logo {
+  height: modular-scale(4);
+  text-align: left;
+}
+
+.footer__isms {
+  @include span-columns(3);
+  @include omega();
+
+  @include media($tablet) {
+    @include span-columns(12);
+    @include omega();
+
+    .footer__logo {
+      text-align: center;
+    }
+  }
+}
+
+.footer__social {
+  &:before, &:after {
+    content: ' ';
+    display: table;
+    clear: both;
+  }
+
+  & > li {
+    @include padding(null modular-scale(1) null null);
+    float: left;
+    &:last-child {
+      @include padding(null 0 null null);
+    }
+  }
+  & > li > a {
+    color: $color-white;
+    font-size: 1.6rem;
+  }
+
+  @include media($tablet) {
+    width: 148px;
+    margin: 0 auto;
+  }
+}
+
+.footer__copyright {
+  @include span-columns(12);
+  @include omega();
+  @include margin(2rem null null);
+
+  @include media($tablet) {
+    text-align: center;
+  }
+}
+
+
+//.footer__nav {
+//
+//  .footer__nav__social {
+//    li {
+//      display: inline-block;
+//      @include margin(null modular-scale(1) null null);
+//      font-size: modular-scale(1);
+//
+//      &:last-child {
+//        @include margin(null 0 null null);
+//      }
+//    }
+//  }
+//
+//  a {
+//    color: $color-footer;
+//    @include transition(color .2s ease-in-out);
+//
+//    &:hover {
+//      color: #fff;
+//    }
+//  }
+//}

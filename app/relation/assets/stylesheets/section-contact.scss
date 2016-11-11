@@ -1,0 +1,83 @@
+@charset "UTF-8";
+
+@import "variables";
+
+
+//
+// CONTACT
+//
+#contact {
+  background: $bgcolor-base;
+
+  header {
+    @include position(relative);
+
+    h2 {
+      margin-bottom: .8rem;
+    }
+  }
+
+  .contents-wrapper {
+    @include position(relative);
+  }
+
+  .contents {
+    @include span-columns(6);
+    @include omega(2n);
+  }
+
+  .contents__button {
+    & > a {
+      width: 85%;
+      border: 2px solid $bgcolor-green;
+      font-size: 1.4rem;
+      line-height: 30px;
+      color: $bgcolor-base;
+      background-color: $bgcolor-green;
+    }
+
+    i {
+      margin-right: 6px;
+    }
+  }
+  .contents__button__request {
+    & > a {
+      border-color: $bgcolor-orange;
+      background-color: $bgcolor-orange;
+    }
+  }
+
+  .contents__button__twitter {
+    display: none;
+    & > a {
+      color: $bgcolor-twitter;
+      border-color: $bgcolor-twitter;
+      background-color: $bgcolor-base;
+    }
+
+
+    @include media($tablet) {
+      display: block;
+    }
+  }
+
+  .contents__link__twitter {
+    display: block;
+    @include position(absolute, -39px 75px null null);
+
+    @include media($tablet) {
+      display: none;
+    }
+  }
+
+  @include media($tablet) {
+    .contents {
+      @include span-columns(12);
+      @include omega();
+    }
+
+    .contents__button > a {
+      font-size: 1rem;
+    }
+  }
+}

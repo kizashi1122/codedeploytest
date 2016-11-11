@@ -1,0 +1,322 @@
+@charset "UTF-8";
+
+@import "variables";
+
+
+//
+// WHAT IS?
+//
+#top-description {
+  background: $bgcolor-base;
+
+  .contents.contents-summary {
+    @include span-columns(6);
+    @include omega(2n);
+  }
+  .contents.contents-image {
+    @include span-columns(6);
+    @include omega(2n);
+    text-align: center;
+  }
+
+
+  @include media($tablet) {
+    .contents.contents-summary {
+      @include span-columns(12);
+      @include omega();
+    }
+    .contents.contents-image {
+      @include span-columns(12);
+      @include omega();
+      text-align: center;
+    }
+    .contents + .contents {
+      @include margin(2rem null null);
+    }
+  }
+}
+
+
+//
+// FEATURES
+//
+#top-features {
+  background: $bgcolor-light-green;
+
+  h3 {
+    margin: 1.5rem 0;
+    text-align: center;
+  }
+  p {
+    height: 210px;
+    color: #7a997a;
+  }
+
+  .contents {
+    @include span-columns(4);
+    @include omega(3n);
+  }
+
+  .contents__image {
+    text-align: center;
+
+    img {
+      width: 330px;
+      height: 300px;
+    }
+  }
+  .contents__button {
+    & > a {
+      width: 65%;
+      max-width: 240px;
+      border: 2px solid $bgcolor-green;
+      color: $bgcolor-green;
+      background-color: $bgcolor-base;
+      &:hover {
+        color: $bgcolor-base;
+        background-color: $bgcolor-green;
+        opacity: 1;
+      }
+    }
+  }
+
+
+  @include media($tablet) {
+    h3 {
+      @include margin(null auto);
+    }
+    p {
+      max-width: 500px;
+      height: auto;
+      @include margin(null auto);
+    }
+    .contents {
+      @include span-columns(12);
+      @include omega();
+    }
+    .contents + .contents {
+      @include margin(2rem null null);
+    }
+  }
+}
+
+
+//
+// FUNCTIONS
+//
+@include direction-context(right-to-left) {
+  #top-functions {
+    background-image: url("../images/top/bg_functions.png");
+    background-size: cover;
+
+    h4 {
+      color: $bgcolor-deep-green;
+    }
+
+    .contents.contents-image {
+      @include span-columns(6);
+      text-align: left;
+    }
+    .contents.contents-summary {
+      @include span-columns(6);
+      @include padding(null null null 2rem);
+      color: $bgcolor-base;
+    }
+    .contents__button {
+      margin-top: 2.6rem;
+      text-align: left;
+
+      & > a:hover {
+        color: $bgcolor-green;
+        background-color: $bgcolor-base;
+        opacity: 1;
+      }
+    }
+
+
+    @include media($tablet) {
+      h2, h4, p {
+        text-align: center;
+      }
+
+      .contents.contents-summary {
+        @include span-columns(12);
+        @include padding(0);
+      }
+      .contents.contents-image {
+        @include span-columns(12);
+        text-align: center;
+      }
+      .contents + .contents {
+        @include margin(2rem null null);
+      }
+      .contents__button {
+        text-align: center;
+      }
+    }
+  }
+}
+
+
+//
+// SECURITY
+//
+#top-security {
+  background-image: url("../images/top/bg_security.png");
+  background-size: cover;
+
+  h4 {
+    color: $bgcolor-green;
+  }
+
+  .contents {
+    @include span-columns(6);
+    color: $bgcolor-base;
+  }
+
+  .contents__image {
+    text-align: left;
+  }
+
+  .contents__button {
+    margin-top: 3.6rem;
+    text-align: left;
+    & > a:hover {
+      color: $bgcolor-deep-green;
+      background-color: $bgcolor-base;
+      opacity: 1;
+    }
+  }
+
+
+  @include media($tablet) {
+    h2, h4, p {
+      text-align: center;
+    }
+
+    .contents {
+      @include span-columns(12);
+    }
+    .contents + .contents {
+      @include margin(2rem null null);
+    }
+    .contents__image {
+      text-align: center;
+    }
+    .contents__button {
+      text-align: center;
+    }
+  }
+}
+
+
+//
+// SUBSCRIPTION PLAN
+//
+#top-subscription {
+  background-image: url("../images/top/bg_subscription.png");
+  background-size: cover;
+
+  h2, h3, h4, p {
+    color: $bgcolor-base;
+  }
+
+  header {
+    @include shift(3);
+    @include span-columns(6);
+  }
+
+  .contents {
+    @include shift(3);
+    @include span-columns(6);
+  }
+  .contents__button {
+    & > a:hover {
+      border-color: $bgcolor-green;
+      background-color: $bgcolor-green;
+      opacity: 1;
+    }
+  }
+
+
+  @include media($tablet) {
+    header {
+      @include shift(0);
+      @include span-columns(12);
+    }
+
+    .contents {
+      @include shift(0);
+      @include span-columns(12);
+    }
+  }
+}
+
+//
+// NEWS & TESTIMONIALS
+//
+#top-testimonials {
+  background: $bgcolor-gray;
+
+  header {
+    @include shift(3);
+    @include span-columns(6);
+    @include omega();
+
+    p {
+      text-align: center;
+      color: #888;
+    }
+  }
+
+  .contents {
+    @include shift(1);
+    @include span-columns(10);
+    @include omega();
+
+    h3 {
+      @include margin(2rem null .5rem);
+      color: $bgcolor-green;
+      text-align: left;
+    }
+  }
+  .contents__user,
+  .contents__media {
+    @include span-columns(2 of 10);
+    @include omega(5n);
+    height: 80px;
+    margin-bottom: 1rem;
+    text-align: center;
+
+    a {
+      display: inline-block;
+      &:hover {
+        opacity: .6;
+      }
+      img {
+        height: 100%;
+      }
+    }
+  }
+
+
+  @include media($tablet) {
+    header {
+      @include shift(0);
+      @include span-columns(12);
+    }
+
+    .contents {
+      @include shift(0);
+      @include span-columns(12);
+    }
+    .contents__user,
+    .contents__media {
+      @include span-columns(4 of 12);
+      @include omega-reset(5n);
+      @include omega(3n);
+      height: auto;
+    }
+  }
+}
+

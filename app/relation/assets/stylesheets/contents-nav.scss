@@ -1,0 +1,152 @@
+@charset "UTF-8";
+
+@import "variables";
+
+
+#navbar {
+  @include padding(0 null);
+  position: absolute;
+  top: 0;
+  width: 100%;
+  border-bottom: 1px solid $border-color-gray;
+  background: $bgcolor-base;
+  z-index: 11;
+  &.fixed {
+    position: fixed;
+  }
+
+  .navbar__button {
+    display: none;
+    float: right;
+    height: modular-scale(2);
+    @include user-select();
+
+    span {
+      display: inline-block;
+      width: 45px;
+      margin: 12px 0;
+      font-size: 2rem;
+      line-height: modular-scale(2);
+      text-align: center;
+      vertical-align: middle;
+      cursor: pointer;
+    }
+  }
+
+  .navbar__logo {
+    float: left;
+    margin: 0;
+
+    a {
+      display: block;
+      width: 170px;
+      height: 100%;
+      line-height: modular-scale(3);
+      &:hover {
+        opacity: .6;
+      }
+    }
+
+    img {
+      padding-top: 6px;
+      vertical-align: top;
+    }
+  }
+
+  .navbar__menu {
+    float: right;
+    &.open {
+      display: block;
+    }
+
+    ul {
+      @include clearfix;
+      list-style: none outside none;
+      margin: 0;
+      padding: 0;
+    }
+
+    ul>li {
+      float: left;
+
+      &.split {
+        width: 1px;
+        height: calc(#{modular-scale(3)} - 30px);
+        padding: 0;
+        border-left: 1px dotted $bgcolor-black;
+        @include margin(15px null 15px #{modular-scale(0) / 2});
+      }
+    }
+
+    ul>li>a {
+      @include margin(0 0 0 6px);
+      padding: 6px 6px;
+      line-height: modular-scale(3);
+      color: $bgcolor-black;
+      font-weight: 600;
+      letter-spacing: 1px;
+
+      &.anchor {
+        &.current,
+        &:hover {
+          color: $bgcolor-green;
+        }
+      }
+      &.link {
+        color: $action-color;
+        text-decoration: underline;
+      }
+      &.button {
+        margin: 0 0 0 12px;
+        padding: 9px 12px;
+        border-radius: 2px;
+        font-size: 13px;
+        color: $bgcolor-base;
+        text-align: center;
+        background-color: $bgcolor-green;
+        cursor: pointer;
+        &:hover {
+          opacity: .6;
+        }
+      }
+    }
+  }
+
+
+  @include media($tablet) {
+    .navbar__button {
+      display: block;
+    }
+
+    .navbar__logo {
+      float: none;
+    }
+
+    .navbar__menu {
+      display: none;
+      float: none;
+
+      ul>li {
+        float: none;
+
+        &.login {
+          display: none;
+        }
+
+        &.split {
+          display: none;
+        }
+        &.split ~ li {
+          float: left;
+        }
+      }
+      ul>li>a {
+        &.anchor {
+          display: block;
+          line-height: modular-scale(2);
+          border-bottom: 1px solid $border-color-gray;
+        }
+      }
+    }
+  }
+}

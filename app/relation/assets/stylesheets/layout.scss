@@ -1,0 +1,42 @@
+@charset "UTF-8";
+
+@import "variables";
+
+
+.layout__header {
+  @include clearfix;
+  color: $bgcolor-base;
+  background: $bgcolor-green;
+
+  @include media($tablet) {
+    display: none;
+  }
+}
+
+
+.layout__footer {
+  @include position(fixed, null null 0 0);
+  @include clearfix;
+  width: 100%;
+  height: $height-footer;
+  background: $bgcolor-black;
+  z-index: 99;
+
+  @include media($tablet) {
+    @include position(static);
+    height: auto;
+  }
+}
+
+
+.layout__contents {
+  position: relative;
+  min-height: 300px;
+  margin-bottom: #{$height-footer};
+  background: $bgcolor-base;
+  z-index: 100;
+
+  @include media($tablet) {
+    margin-bottom: 0;
+  }
+}

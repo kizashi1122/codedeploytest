@@ -1,0 +1,246 @@
+@charset "UTF-8";
+
+@import "../../../../vendor/neat/app/assets/stylesheets/neat";
+@import "variables";
+
+
+/* ------------------
+ * Font Face
+ * ------------------*/
+@font-face {
+  font-family: 'slick';
+  font-weight: normal;
+  font-style: normal;
+
+  src: url('../../../vendor/fonts/slick.eot');
+  src: url('../../../vendor/fonts/slick.eot?#iefix') format('embedded-opentype'),
+  url('../../../vendor/fonts/slick.woff')       format('woff'),
+  url('../../../vendor/fonts/slick.ttf')        format('truetype'),
+  url('../../../vendor/fonts/slick.svg#slick')  format('svg');
+}
+
+
+html {
+  color: $bgcolor-black;
+  font-size: 14px;
+  font-weight: 400;
+  font-family: "Helvetica Neue", "Helvetica", Arial, "メイリオ", "Meiryo UI", Meiryo, "游ゴシック", "Yu Gothic", YuGothic, "Hiragino Kaku Gothic ProN", sans-serif;
+  line-height: 1.7;
+  letter-spacing: -0.02rem;
+}
+
+body {
+  color: $bgcolor-black;
+  font-size: 14px;
+  font-weight: 400;
+  font-family: "Helvetica Neue", "Helvetica", Arial, "メイリオ", "Meiryo UI", Meiryo, "游ゴシック", "Yu Gothic", YuGothic, "Hiragino Kaku Gothic ProN", sans-serif;
+  line-height: 1.7;
+  letter-spacing: -0.02rem;
+  background-color: $bgcolor-gray;
+  overflow-y: scroll;
+  overflow-x: hidden !important;
+  -webkit-overflow-scrolling: touch;
+}
+
+img {
+  height: auto;
+}
+
+.hidden {
+  display: none !important;
+}
+
+@include selection {
+  color: $bgcolor-base;
+  background: $bgcolor-green;
+}
+
+@include media($desktop) {
+  .hidden-pc {
+    display: none !important;
+  }
+}
+@include media($tablet) {
+  .hidden-tablet {
+    display: none !important;
+  }
+}
+
+
+.wrapper {
+  background: $bgcolor-gray;
+}
+.wrapper-inner {
+  width: 100%;
+  overflow: hidden;
+}
+
+
+.section {
+  @include padding(modular-scale(3) null);
+  background: $bgcolor-base;
+
+  &.section-header {
+    @include padding(#{modular-scale(3) + modular-scale(4)} null #{modular-scale(4)});
+    background: $bgcolor-green url("../images/common/bg_section_header.png") no-repeat 100% -25%;
+
+    h1, h2, h3, h4 {
+      color: $bgcolor-base;
+      text-align: center;
+    }
+    h2 {
+      @include margin(null null 0);
+      font-size: 2.4rem;
+      font-weight: normal;
+    }
+  }
+}
+.section__container {
+  height: 100%;
+  @include outer-container();
+  @include clearfix();
+  @include padding(0 modular-scale(2));
+  @include media($tablet) {
+    @include padding(0 modular-scale(0));
+  }
+
+  h1 {
+    font-size: 3.3rem;
+  }
+  h2 {
+    font-size: 2.3rem;
+    text-align: left;
+    margin-bottom: 2.8rem;
+  }
+  h3 {
+    font-size: 1.5rem;
+    text-align: left;
+  }
+  h4 {
+    margin-bottom: 1.4rem;
+    font-size: 1.4rem;
+    font-weight: normal;
+    font-family: "Roboto";
+    letter-spacing: .05rem;
+    color: $bgcolor-green;
+    text-align: left;
+    @include transform(scale(1,1.15));
+  }
+
+  header {
+    @include span-columns(12);
+    @include omega();
+
+    h1, h2, h3, h4, p {
+      text-align: center;
+    }
+
+    @include media($tablet) {
+      h1, h2, h3, h4, p {
+        max-width: rem(600);
+      }
+    }
+  }
+
+  @include media($tablet) {
+    @include outer-container(rem(600));
+
+    h1, h2, h3, h4, p {
+      @include margin(null auto);
+      height: auto;
+      text-align: center;
+    }
+    h2 {
+      font-size: 1.5rem;
+    }
+    p {
+      text-align: left;
+    }
+  }
+}
+
+
+.contents-wrapper {
+  @include outer-container();
+  @include clearfix();
+
+  @include media($tablet) {
+    @include outer-container(rem(600));
+  }
+}
+
+
+.contents {
+  .contents__button {
+    text-align: center;
+    margin-top: 2rem;
+
+    & > a {
+      position: relative;
+      display: inline-block;
+      width: 240px;
+      padding: 9px 12px;
+      border: 1px solid $bgcolor-base;
+      border-radius: 24px;
+      line-height: 24px;
+      font-size: 1rem;
+      font-weight: bold;
+      color: $bgcolor-base;
+      text-align: center;
+      background-color: transparent;
+      cursor: pointer;
+      @include user-select(none);
+      &:hover {
+        opacity: .6;
+      }
+    }
+
+    .fa.fa-chevron-right {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+    }
+  }
+}
+
+
+#{$all-button-inputs},
+.button {
+  outline: none;
+
+  &.button-trial {
+    color: $bgcolor-base;
+    text-align: center;
+    background-color: $bgcolor-orange;
+  }
+}
+
+
+.twitter-pr {
+  display: block;
+  width: 180px;
+  height: 80px;
+  padding: 16px 0;
+  border: 2px solid $bgcolor-twitter;
+  border-radius: 5px;
+  text-align: center;
+  background: $bgcolor-base;
+
+  &:before {
+    display: block;
+    content: "Twitterで質問OK!";
+  }
+  &:after {
+    display: block;
+    content: "@INGAGEjp";
+  }
+}
+
+
+// ------------------------------------------------------------
+// Omega Reset
+// ------------------------------------------------------------
+@mixin omega-reset($nth) {
+  &:nth-child(#{$nth}) { margin-right: flex-gutter(); }
+  &:nth-child(#{$nth}+1) { clear: none }
+}

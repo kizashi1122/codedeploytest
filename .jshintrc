@@ -1,0 +1,75 @@
+{
+  /*
+   * Enforcing options
+   * これらにtrueを設定することで、JSHintはより厳しく警告を出すようになる。
+   * refs: http://qiita.com/maccotsan/items/0fb82ccab014f49ff95d
+   */
+
+  // ビット演算子^、|等を禁ずる。
+  "bitwise": true,
+
+  // 変数名をキャメルケース、または大文字のアンダースコア区切りのみとする。
+  // (ex) camelCase、UPPER_CASE
+  "camelcase": true,
+
+  // ループや条件分岐のブロックをブレイス{}で囲うことを強制する。
+//  "curly": true,
+
+  // ==、!=を禁止して===、!==を強制する。
+  "eqeqeq": true,
+
+  // for-inループでオブジェクトのプロパティの探査をする際、hasOwnPropertyによるプロパティのチェックを強制する。
+  "forin": true,
+
+  // Array等ネイティブオブジェクトのプロトタイプの変更を禁止する。
+  "freeze": true,
+
+  // パーレン()で囲わない即時関数を禁止する。
+  // コードを読む際、関数ではなく関数の実行結果であることが明示されるため。
+  "immed": true,
+
+  // インデント幅を強制する。以下の例ではスペース2つでないと警告が出る。
+  "indent": 2,
+
+  // 変数を定義前に使うことを禁止する。
+  "latedef": true,
+
+  // コンストラクタ関数の名前は大文字で始めることを強制する。
+  "newcap": true,
+
+  // arguments.caller、arguments.calleeを禁止する。
+  "noarg": true,
+
+  // 空のブロックがあると警告を発する。
+  "noempty": true,
+
+  // コンストラクタ関数をnewで呼び出した値を変数に格納することを強制する。
+  "nonew": true,
+
+  // クオーテーションマークの一貫性を強制する。
+  "quotmark": "single",
+
+  // var宣言されていない変数を使用することを禁止する。
+  "undef": true,
+
+  // 宣言しても使っていない変数があったら警告する。
+  "unused": true,
+
+  //------------------------------------------------------
+
+  // Relaxing options
+  // http://www.jshint.com/docs/options/#relaxing-options
+  // trueをセットした項目について、JSHintが警告を出さなくなる。
+
+  "esnext": true,
+
+  //------------------------------------------------------
+
+  // Environments
+  // http://www.jshint.com/docs/options/#environments
+  // JSHintに元々用意されているグローバル変数を教えるためのオプションたち。
+
+  "browser": true,
+  "jquery": true,
+  "node": true
+}

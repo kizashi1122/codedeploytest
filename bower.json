@@ -1,0 +1,17 @@
+{
+  "version": "2.0.0",
+  "name": "ingage-landing-page",
+  "dependencies": {
+    "bitters": "~1.2.0",
+    "bourbon": "~4.2.6",
+    "font-awesome": "~4.3.0",
+    "html5shiv": "~3.7.2",
+    "jquery": "~1.11.3",
+    "jquery-single-page-nav": "*",
+    "modernizr": "~2.8.3",
+    "neat": "~1.7.2",
+    "sanitize-css": "^4.1.0",
+    "slick-carousel": "~1.5.9",
+    "urijs": "uri.js#^1.17.1"
+  }
+}

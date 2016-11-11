@@ -1,0 +1,256 @@
+@charset "UTF-8";
+
+@import "variables";
+
+//
+// DESCRIPTION
+//
+#features-description {
+  p {
+    @include margin(null auto);
+    max-width: 500px;
+  }
+}
+
+
+//
+// TITLE
+//
+#features-title {
+  @include position(relative);
+  z-index: 1;
+
+  &:before, &:after {
+    content: ' ';
+    @include position(absolute, 0 null null 0);
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: url("../images/features/bg_about.png") no-repeat 10% 50%;
+  }
+  &:before {
+    @include transform(rotateY(180deg));
+  }
+
+  .contents {
+    @include span-columns(12);
+    @include omega();
+    text-align: center;
+  }
+
+  @include media($tablet) {
+    @include padding(0 null);
+
+    &:before, &:after {
+      background-position: 3% 50%;
+      background-size: 50px 50px;
+    }
+
+    h1 {
+      font-size: 2rem;
+    }
+    .section__container {
+      max-width: none;
+      width: calc(100% - 125px);
+    }
+  }
+}
+
+
+//
+// FEATURES (共通)
+//
+.section.section-features {
+  h2 {
+    @include padding(null null null 100px);
+    @include margin(null null modular-scale(3));
+    line-height: 70px;
+    font-size: 2.6rem;
+    text-align: left;
+    background-repeat: no-repeat;
+  }
+
+  .contents-wrapper {
+    .contents-summary {
+      @include span-columns(6);
+      @include omega(2n);
+    }
+    .contents-image {
+      @include span-columns(6);
+      @include omega(2n);
+
+      img {
+        width: 437px;
+        margin-top: -10px;
+      }
+    }
+    .contents-image-full {
+      @include span-columns(12);
+      @include omega();
+      text-align: center;
+    }
+    .contents-image   + .contents-image,
+    .contents-summary + .contents-image {
+      text-align: right;
+    }
+  }
+  .contents-wrapper + .contents-wrapper {
+    @include margin(modular-scale(3) null null);
+  }
+
+
+  @include direction-context(right-to-left) {
+    .contents-wrapper.rtl {
+      .contents-summary {
+        @include span-columns(6);
+        @include margin(null 0 null null);
+      }
+      .contents-image {
+        @include span-columns(6);
+        @include margin(null 0 null null);
+        text-align: right;
+      }
+    }
+  }
+
+
+  @include media($tablet) {
+    h2 {
+      @include margin(null null modular-scale(1));
+      @include padding(null null null 65px);
+      line-height: 1.4;
+      font-size: 1.4rem;
+      background-size: 50px 50px;
+      background-position: 0 50%;
+    }
+    h3 {
+      font-size: 1.3rem;
+    }
+
+    .contents-wrapper,
+    .contents-wrapper.rtl {
+      .contents-summary {
+        @include span-columns(12);
+        @include omega-reset(2n);
+        @include margin(modular-scale(1) 0 null);
+      }
+      .contents-image {
+        @include span-columns(12);
+        @include omega-reset(2n);
+        @include margin(modular-scale(1) 0 null);
+        text-align: center;
+      }
+      .contents-image   + .contents-image,
+      .contents-summary + .contents-image {
+        text-align: center;
+      }
+    }
+    .contents-wrapper + .contents-wrapper {
+      @include margin(modular-scale(2) null null);
+    }
+  }
+}
+
+
+//
+// FEATURES 1
+//
+#features-one {
+  @include padding(0 null null);
+
+  h2 {
+    color: $color-green;
+    background-image: url(../images/features/bg_number1.png);
+  }
+
+  h3 > span {
+    background: linear-gradient(transparent 70%, #ff0 0%);
+  }
+}
+
+
+//
+// FEATURES 2
+//
+#features-two {
+  color: $color-white;
+  background: url(../images/features/bg_feature2.png) no-repeat;
+  background-size: cover;
+
+  h2 {
+    color: $color-white;
+    background-image: url(../images/features/bg_number2.png);
+  }
+
+  h3 > span {
+    background: linear-gradient(transparent 70%, #f00 0%);
+  }
+}
+
+
+//
+// FEATURES 3
+//
+#features-three {
+
+  h2 {
+    color: $color-green;
+    background-image: url(../images/features/bg_number3.png);
+  }
+
+  h3 > span {
+    background: linear-gradient(transparent 70%, #ff0 0%);
+  }
+}
+
+
+//
+// SECURITY
+//
+#features-security {
+  background: $bgcolor-gray;
+
+  .contents {
+    @include span-columns(4);
+    @include omega(3n);
+    @include margin(modular-scale(2) null null);
+
+    h4 {
+      @include margin(null null modular-scale(1));
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: $bgcolor-deep-green;
+      text-align: center;
+      & > span {
+        margin: 0 3px;
+        font-size: .9rem;
+      }
+    }
+    .contents__image {
+      @include margin(null null modular-scale(1));
+      text-align: center;
+    }
+    .contents__summary {
+      font-size: .9rem;
+    }
+  }
+
+
+  @include media($tablet) {
+    .contents {
+      @include span-columns(12);
+      @include omega-reset(3n);
+      @include margin(modular-scale(1) null null);
+
+      h4 {
+        @include margin(null null modular-scale(0));
+      }
+
+      .contents__summary {
+        max-width: 500px;
+        height: auto;
+        @include margin(null auto);
+      }
+    }
+  }
+}

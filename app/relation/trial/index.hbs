@@ -1,0 +1,160 @@
+<!doctype html>
+<html class="no-js" lang="ja">
+{{> _head}}
+
+<body>
+<div class="wrapper">
+  <div class="wrapper-inner">
+    {{> _header}}
+
+    <div class="layout__contents">
+      {{> _section-nav}}
+
+      <section class="section contents__request">
+          <div class="section__container">
+            <div class="contents__request__summary summary">
+              <div class="summary__container">
+                <h2>トライアル申込<br/>ありがとうございます</h2>
+                <h3>
+                  お使いのメールアドレスはそのままにメールを複数人で共有・管理できるクラウドサービスです。
+                </h3>
+                <h3>
+                  承認機能や対応履歴を一覧できるタイムライン機能などメーラーにはない便利な機能が詰まっています。
+                </h3>
+                <h3>
+                  まずは無料トライアルでお試しください。
+                </h3>
+              </div>
+            </div>
+
+            <div class="contents__request__form">
+              <form action="http://210.172.183.49/trial-relation/index.html#wpcf7-f165-p166-o1" method="post">
+                <div class="field">
+                  <label for="company" placeholder="御社名を入力してください">
+                    御社名 (必須)
+                  </label>
+                  <div class="input">
+                    <input type="text" id="company" name="your-company" required="required" />
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label for="division" placeholder="部署名を入力してください">
+                    部署名
+                  </label>
+                  <div class="input">
+                    <input type="text" id="division" name="your-division" />
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label for="business" placeholder="業種を入力してください">
+                    業種 (必須)
+                  </label>
+                  <div class="select">
+                    <select name="menu-business" id="business" required="required">
+                      <option value="">---</option>
+                      <option value="通信販売">通信販売</option>
+                      <option value="メーカー（一般向け）">メーカー（一般向け）</option>
+                      <option value="メーカー（企業向け）">メーカー（企業向け）</option>
+                      <option value="学校・教育">学校・教育</option>
+                      <option value="宿泊・飲食サービス">宿泊・飲食サービス</option>
+                      <option value="医療・福祉">医療・福祉</option>
+                      <option value="その他">その他</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label for="title" placeholder="役職を入力してください">
+                    役職 (必須)
+                  </label>
+                  <div class="select">
+                    <select name="menu-title" id="title" required="required">
+                      <option value="">---</option>
+                      <option value="役員・執行役員">役員・執行役員</option>
+                      <option value="事業部長・部長">事業部長・部長</option>
+                      <option value="課長">課長</option>
+                      <option value="係長・リーダー">係長・リーダー</option>
+                      <option value="一般職">一般職</option>
+                      <option value="その他">その他</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label for="name" placeholder="お名前を入力してください">
+                    お名前 (必須)
+                  </label>
+                  <div class="input">
+                    <input type="text" id="name" name="your-name" required="required" />
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label for="email" placeholder="メールアドレスを入力してください">
+                    メールアドレス (必須)
+                  </label>
+                  <div class="input">
+                    <input type="email" id="email" name="your-email" required="required" />
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label for="tel" placeholder="電話番号を入力してください">
+                    電話番号 (必須)
+                  </label>
+                  <div class="input">
+                    <input type="text" id="tel" name="your-tel" required="required" />
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label for="root">
+                    Re:lationを知ったきっかけ
+                  </label>
+                  <div class="select">
+                    <select name="menu-root" id="root">
+                      <option value="Google">Google</option>
+                      <option value="Yahoo!">Yahoo!</option>
+                      <option value="Facebook">Facebook</option>
+                      <option value="その他Web">その他Web</option>
+                      <option value="展示会">展示会</option>
+                      <option value="案内状">案内状</option>
+                      <option value="知人の紹介">知人の紹介</option>
+                      <option value="以前の職場で利用">以前の職場で利用</option>
+                      <option value="その他">その他</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="field field__acceptance">
+                  <div class="checkbox">
+                    <input type="checkbox" id="acceptance" name="acceptance-privacy" />
+                  </div>
+                  <label for="acceptance">
+                    私は株式会社インゲージの
+                    <a target="_blank" href="http://ingage.co.jp/?page_id=60">
+                      個人情報保護方針
+                    </a>
+                    に同意します。
+                  </label>
+                </div>
+                <div class="field field__submit">
+                  <button type="submit">送信</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </section>
+      </div>
+
+
+    {{> _footer}}
+
+  </div><!-- .wrapper-inner -->
+</div><!-- .wrapper -->
+
+{{> _script}}
+</body>
+</html>

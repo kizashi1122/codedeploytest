@@ -1,0 +1,512 @@
+@charset "UTF-8";
+
+@import "variables";
+
+
+#plans-table {
+
+  //
+  // Header
+  //
+  header > h2,
+  header > h3,
+  header > h4 {
+    text-align: left;
+  }
+
+
+  @include media($tablet) {
+    .contents-wrapper {
+      &.contents-wrapper__free {
+        .contents.table-header .contents__free {
+          background: $bgcolor-green;
+        }
+        .contents.table-body .contents__free {
+          display: block;
+        }
+      }
+      &.contents-wrapper__light {
+        .contents.table-header .contents__light {
+          background: $bgcolor-green;
+        }
+        .contents.table-body .contents__light {
+          display: block;
+        }
+      }
+      &.contents-wrapper__standard {
+        .contents.table-header .contents__standard {
+          background: $bgcolor-orange;
+        }
+        .contents.table-body .contents__standard {
+          display: block;
+        }
+      }
+      &.contents-wrapper__premium {
+        .contents.table-header .contents__premium {
+          background: $bgcolor-green;
+        }
+        .contents.table-body .contents__premium {
+          display: block;
+        }
+      }
+      &.contents-wrapper__enterprise {
+        .contents.table-header .contents__enterprise {
+          background: $bgcolor-green;
+        }
+        .contents.table-body {
+          display: none;
+        }
+      }
+    }
+  }
+
+
+  //
+  // Plan Table
+  //
+  .contents.table-header,
+  .contents.table-body {
+    @include span-columns(12);
+    @include omega();
+
+    & > div {
+      width: 16.6%;
+      float: left;
+    }
+    &:after {
+      content: ' ';
+      clear: both;
+    }
+
+    .table-box {
+      border: 1px solid $border-color-gray;
+      border-bottom-width: 0;
+      border-right-width: 0;
+      &:last-child {
+        border-bottom-width: 1px;
+      }
+    }
+    & > div:last-child .table-box {
+      border-right-width: 1px;
+    }
+
+    .annotate {
+      font-size: .8rem;
+      vertical-align: top;
+      line-height: .8;
+    }
+
+    .small {
+      font-size: .9rem;
+    }
+  }
+
+
+  //
+  // table-header
+  //
+  .contents.table-header {
+
+    br { display: none; }
+
+    .annotate {
+      font-size: .8rem;
+      vertical-align: top;
+    }
+
+    .table-box {
+      @include padding(.7rem null);
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .contents__plan       { color: $bgcolor-black; background: $bgcolor-gray;   }
+    .contents__free       { color: $bgcolor-base;  background: $bgcolor-black;  }
+    .contents__light      { color: $bgcolor-base;  background: $bgcolor-black;  }
+    .contents__standard   { color: $bgcolor-base;  background: $bgcolor-orange; }
+    .contents__premium    { color: $bgcolor-base;  background: $bgcolor-black;  }
+    .contents__enterprise { color: $bgcolor-base;  background: $bgcolor-black;  }
+
+    @include media($tablet) {
+      @include position(relative, null null null -1rem);
+      width: calc(100% + 2rem);
+
+      br { display: inline; }
+
+      & > div {
+        width: 20%;
+        height: 3.6rem;
+      }
+      .contents__plan {
+        display: none;
+      }
+      .contents__free,
+      .contents__light,
+      .contents__premium {
+        .table-box {
+          @include padding(1.3rem null null);
+        }
+      }
+
+      .contents__free,
+      .contents__light,
+      .contents__standard,
+      .contents__premium,
+      .contents__enterprise {
+        color: $bgcolor-base;
+        background: $bgcolor-black;
+      }
+
+      .table-box {
+        height: 100%;
+        font-size: .9rem;
+        font-weight: normal;
+        line-height: 1.2;
+      }
+    }
+  } // .contents.table-header
+
+
+  //
+  // table-body
+  //
+  .contents.table-body {
+
+    .table-box {
+      height: 60px;
+      @include padding(1rem null);
+      border-top: 1px solid $border-color-gray;
+      font-size: 1rem;
+      font-weight: normal;
+      line-height: calc(60px - 2rem);
+      text-align: center;
+      &:first-child {
+        border-top: 0;
+      }
+
+      &.fee {
+        height: 70px;
+        line-height: calc(70px - 2rem);
+      }
+      &.storage,
+      &.import,
+      &.training,
+      &.phone-option {
+        height: 70px;
+        line-height: 1.5;
+      }
+
+      &.button {
+        @include padding(.8rem 0);
+
+        button {
+          @include padding(null 0);
+          width: 90%;
+          text-align: center;
+          font-size: 1rem;
+          color: $bgcolor-base;
+          background: $bgcolor-green;
+          &:hover {
+            border: 1px solid $bgcolor-green;
+            color: $bgcolor-green;
+            background: $bgcolor-base;
+          }
+        }
+      }
+
+      &.description {
+        height: 770px;
+        line-height: 770px;
+        background: #eaf8ec;
+
+        a {
+          color: $bgcolor-green;
+          font-weight: bold;
+          text-decoration: underline;
+        }
+        i {
+          @include margin(null null null 6px);
+        }
+      }
+    }
+
+
+    .contents__free {
+      .table-box.button {
+        button {
+          border: 1px solid $bgcolor-green;
+          color: $bgcolor-green;
+          background: $bgcolor-base;
+          &:hover {
+            color: $color-white;
+            background: $bgcolor-green;
+          }
+        }
+      }
+    }
+
+
+    .contents__standard {
+      color: $bgcolor-orange;
+
+      .table-box.button {
+        button {
+          background: $bgcolor-orange;
+          &:hover {
+            border: 1px solid $bgcolor-orange;
+            color: $bgcolor-orange;
+            background: $bgcolor-base;
+          }
+        }
+      }
+    }
+
+
+    .contents__free,
+    .contents__light,
+    .contents__standard,
+    .contents__premium {
+      .table-box {
+        font-size: 1.6rem;
+        font-weight: bold;
+
+        .fa-times { color: $bgcolor-red;   }
+        .fa-check { color: $bgcolor-green; }
+        .count {
+          @include margin(null null null .6rem);
+          font-weight: normal;
+          color: $bgcolor-green;
+        }
+
+        &.fee {
+          @include padding(1.3rem null null);
+          font-size: 1.2rem;
+          line-height: 1.1;
+        }
+        &.storage {
+          @include padding(1.1rem null null);
+          line-height: .9;
+        }
+        &.import,
+        &.training,
+        &.phone-option {
+          line-height: calc(70px - 2rem);
+        }
+
+        .desc {
+          font-size: 1rem;
+          font-weight: normal;
+          color: $color-gray;
+        }
+      }
+    }
+
+
+    @include media($tablet) {
+      @include margin(1rem null null);
+
+      .table-box:first-child {
+        border-top: 1px solid $border-color-gray;
+      }
+
+      .table-box.button button {
+        width: 180%;
+        left: -90%;
+        position: relative;
+      }
+
+      .contents__plan {
+        width: 50%;
+        background: $bgcolor-gray;
+
+        .table-box.button {
+          background: $bgcolor-base;
+        }
+      }
+      .contents__free,
+      .contents__light,
+      .contents__standard,
+      .contents__premium,
+      .contents__enterprise {
+        display: none;
+        width: 50%;
+        border-right: 1px solid $border-color-gray;
+
+        .table-box.button {
+          border-left-width: 0;
+        }
+      }
+    }
+  } // .contents.table-body
+
+
+  //
+  // Annotate
+  //
+  .contents.contents-annotate {
+    @include span-columns(6);
+    @include omega(2n);
+    font-size: .9rem;
+    color: $color-gray;
+
+    dl {
+      @include margin(1rem null 0);
+    }
+    dt {
+      @include margin(0);
+      float: left;
+    }
+    dd {
+      @include padding(null null null 2rem);
+      &:after {
+        content: ' ';
+        display: table;
+        clear: left;
+      }
+    }
+
+    @include media($tablet) {
+      @include span-columns(12);
+      @include omega();
+      color: $bgcolor-black;
+    }
+  }
+
+
+  //
+  // Enterprise
+  //
+  .contents.contents-enterprise {
+    @include span-columns(12);
+    @include omega();
+    @include margin(1.8rem null null);
+    @include padding(1.8rem);
+    border: 4px solid $bgcolor-green;
+
+    h2 {
+      @include margin(null null 1.4rem);
+      color: $bgcolor-green;
+      font-size: 1.8rem;
+      text-align: center;
+    }
+
+    p {
+      @include margin(0);
+      font-size: 1.1rem;
+      text-align: center;
+
+      .orange {
+        color: $bgcolor-orange;
+      }
+    }
+
+    @include media($tablet) {
+      @include padding(1.5rem .9rem 1.2rem);
+
+      h2 {
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
+      }
+      p {
+        font-size: .9rem;
+        line-height: 1.4;
+      }
+    }
+  }
+
+
+  //
+  // 問い合わせ・資料請求
+  //
+  .contents.contents-plan-contacts {
+    @include position(relative);
+    @include span-columns(12);
+    @include omega();
+    @include margin(3rem null null);
+    text-align: center;
+
+    br {
+      display: none;
+    }
+
+    h3 {
+      font-size: 1.6rem;
+      text-align: center;
+    }
+
+    .contact-button {
+      button {
+        @include margin(null null 1rem);
+        width: 500px;
+        font-size: 1.6rem;
+        text-align: center;
+        border-radius: 30px;
+        background: $bgcolor-orange;
+        &:hover {
+          opacity: .7;
+        }
+      }
+      .fa.fa-envelope {
+        @include margin(null .6rem null null);
+      }
+    }
+
+    .pdf-link {
+      a {
+        font-size: 1.1rem;
+        color: $bgcolor-black;
+        &:hover {
+          color: $bgcolor-green;
+        }
+      }
+      .fa.fa-file-pdf-o {
+        @include margin(null .6rem null null);
+      }
+    }
+
+    .twitter {
+      @include position(absolute, -18px null null calc(50% + 280px));
+    }
+
+
+    @include media($tablet) {
+      .contact-button button {
+        width: 100%;
+        font-size: 1.2rem;
+      }
+      br { display: inline; }
+
+      .pdf-link > a {
+        @include margin(null null 1rem);
+        @include padding(0.75em 1.5em);
+        display: block;
+        width: 100%;
+        font-size: 1.2rem;
+        border-radius: 30px;
+        line-height: 1;
+        color: $color-white;
+        background: $bgcolor-green;
+        &:hover {
+          color: $color-white;
+          opacity: .7;
+        }
+      }
+
+      .twitter {
+        @include position(static);
+        & > a {
+          @include padding(0.75em 1.5em);
+          display: block;
+          width: 100%;
+          font-size: 1.2rem;
+          border: 1px solid $bgcolor-twitter;
+          border-radius: 30px;
+          line-height: 1;
+          color: $bgcolor-twitter;
+          background: $bgcolor-base;
+        }
+      }
+    }
+  }
+}

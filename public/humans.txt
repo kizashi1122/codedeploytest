@@ -1,0 +1,24 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+  Product Architect: Yu Ishida
+  Contact: ishida [at] ingage.jp
+  Twitter: @ishiyu
+  From: Osaka, Japan
+
+  Promoter: Koji Tamaki
+  Contact: tamaki [at] ingage.jp
+  From: Osaka, Japan
+
+# THANKS
+
+    <name>
+
+# TECHNOLOGY COLOPHON
+  CSS3, HTML5
+  Apache Server Configs, jQuery, Modernizr, Sanitize.css
+
+# SITE
+  Doctype: HTML5
+  IDE: WebStorm, Photoshop

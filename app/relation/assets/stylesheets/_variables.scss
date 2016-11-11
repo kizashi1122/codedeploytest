@@ -1,0 +1,64 @@
+@charset "UTF-8";
+
+@import "../../../../vendor/bourbon/app/assets/stylesheets/bourbon";
+
+
+//
+// media
+//
+$desktop: new-breakpoint(min-width 1025px, 12);
+$tablet:  new-breakpoint(max-width 1024px, 12);
+
+
+//
+// bourbon settings
+//
+$modular-scale-ratio: $golden;
+$modular-scale-base: 1rem;
+
+
+//
+// neat settings
+//
+$max-width: rem(1254) !default;
+
+
+//
+// bg-color
+//
+$bgcolor-base:        #ffffff !default;
+$bgcolor-black:       #212e27 !default;
+$bgcolor-blue:        #51a7f9 !default;
+$bgcolor-gray:        #f3f3f3 !default;
+$bgcolor-green:       #27ad37 !default;
+$bgcolor-light-green: #e3efdc !default;
+$bgcolor-deep-green:  #125626 !default;
+$bgcolor-orange:      #E56539 !default;
+$bgcolor-pink:        #f09099 !default;
+$bgcolor-red:         #ed4949 !default;
+$bgcolor-twitter:     #55acee !default;
+
+
+//
+// font-color
+//
+$color-footer:      #eeeeee !default;
+$color-gray:        #999999 !default;
+$color-green:       #2a8f38 !default;
+$color-light-green: #c3d5ca !default;
+$color-yellow:      #fff000 !default;
+$color-white:       #ffffff !default;
+
+
+//
+// border-color
+//
+$border-color-black: #777777 !default;
+$border-color-gray:  #cccccc !default;
+
+
+//
+// height
+//
+$height-header: modular-scale(2);
+$height-footer: 22rem;

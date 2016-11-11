@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="description" content="">
+  <title></title>
+  <script type="text/javascript">
+    !function() {
+      if (!window.postMessage || !window.JSON){
+        throw new Error('Unsupported Browser!');
+      }
+
+
+      var handleMessage = function(event) {
+        // check origin
+        if (
+          event.origin.match(/^http:\/\/.*\.192\.168\.33\.10\.xip\.io:3000/) ||
+          event.origin.match(/^https:\/\/.*\.7seeds\.net/) ||
+          event.origin.match(/^https:\/\/.*\.relationapp\.jp/)
+        ) {
+          var data = JSON.parse(event.data);
+
+          // 3rd party 制限がある場合は cookie を利用する
+          try {
+            window.localStorage.setItem(data.key, data.value);
+          } catch (e) {
+            var cookie = (data.key + '=' + data.value);
+            var expires = '; expires=Fri, 31 Dec 9999 23:59:59 GMT';
+            window.document.cookie = cookie + expires;
+          }
+        }
+      };
+
+
+      if (window.addEventListener){
+        window.addEventListener('message', function(event){ handleMessage(event); }, false);
+      } else if (window.attachEvent){
+        window.attachEvent('onmessage', function(event){ handleMessage(event); });
+      }
+    }();
+  </script>
+</head>
+
+<body></body>
+
+</html>

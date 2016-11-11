@@ -1,0 +1,278 @@
+@charset "UTF-8";
+
+@import "variables";
+
+
+//
+// SEMINAR
+//
+#plans-seminar {
+  background: url(../images/plans/bg_seminar.png);
+  background-size: cover;
+
+  .contents-wrapper {
+    @include position(relative);
+  }
+
+  .contents {
+    @include span-columns(12);
+    @include omega();
+    background: $bgcolor-base;
+
+    &.contents-intro {
+      @include padding(1.5rem);
+    }
+  }
+
+  h1 {
+    color: $color-white;
+    font-weight: normal;
+
+    br { display: none; }
+    & > span {
+      @include padding(.7rem);
+      display: inline-block;
+      border: 1px solid $bgcolor-base;
+      font-size: 2rem;
+      vertical-align: top;
+    }
+  }
+
+  h2 {
+    @include margin(null null 0);
+    @include padding(1.5rem);
+    color: $color-white;
+    font-size: 2.6rem;
+    font-weight: normal;
+    text-align: center;
+    background: $bgcolor-deep-green;
+    br { display: none; }
+    & > span {
+      color: $color-yellow;
+    }
+  }
+
+  h3 {
+    @include margin(null null .8rem);
+    font-size: 1.8rem;
+    font-weight: normal;
+    color: $bgcolor-green;
+  }
+
+  .contents__template {
+    @include span-columns(6 of 12);
+    @include margin(2rem null null);
+    @include padding(null null null 1.5rem);
+
+    p {
+      @include margin(null null 0);
+      text-align: center;
+      line-height: 1.4;
+    }
+    .line1 {
+      font-size: 1.2rem;
+    }
+    .line2 {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+    .line3 {
+      font-size: 3.6rem;
+      font-weight: bold;
+      color: $bgcolor-orange;
+    }
+  }
+
+  .contents__coupon {
+    @include span-columns(6 of 12);
+    @include margin(2rem null null);
+    border-left: 1px solid black;
+
+    p {
+      @include margin(null null 0);
+      text-align: center;
+      line-height: 1.4;
+    }
+    .line1 {
+      font-size: 2rem;
+      font-weight: bold;
+      line-height: 1;
+    }
+    .line2 {
+      font-size: 2rem;
+      font-weight: bold;
+      color: $bgcolor-orange;
+      br { display: none; }
+    }
+    .line3 {
+      @include margin(.4rem null null);
+      font-size: 1rem;
+      color: $color-gray;
+      br { display: none; }
+    }
+  }
+
+  .introduction {
+    @include padding(1.5rem 3rem);
+    background: $bgcolor-gray;
+
+    br {
+      display: none;
+    }
+    p {
+      @include margin(null null 0);
+    }
+  }
+
+  .pencil {
+    @include position(absolute, null -60px -20px null);
+    width: auto;
+    background: transparent;
+  }
+
+
+  @include media($tablet) {
+    h1 {
+      font-size: 2rem;
+      text-align: center;
+      br { display: inline; }
+      & > span {
+        @include margin(null null .6rem);
+        font-size: 1.2rem;
+      }
+    }
+    h2 {
+      font-size: 1.6rem;
+      br { display: inline; }
+    }
+    .contents__template {
+      @include span-columns(12 of 12);
+      @include omega();
+      @include padding(0);
+
+      .line1 {
+        font-size: 1rem;
+      }
+      .line2 {
+        font-size: 1.4rem;
+      }
+      .line3 {
+        font-size: 3rem;
+      }
+    }
+
+    .contents__coupon {
+      @include span-columns(12 of 12);
+      @include omega();
+      @include padding(2rem null null);
+      border-top: 1px dotted black;
+      border-left: 0;
+
+      .line1 {
+        font-size: .8rem;
+        br { display: none; }
+      }
+      .line2 {
+        font-size: 1.6rem;
+        br { display: inline; }
+      }
+      .line3 {
+        @include padding(null 1.5rem);
+        br { display: inline; }
+      }
+    }
+
+    .introduction {
+      @include padding(2rem 1.5rem);
+
+      br {
+        display: inline;
+      }
+      h3 {
+        font-size: 1.1rem;
+        text-align: left;
+      }
+      p {
+        font-size: .9rem;
+      }
+    }
+
+    .pencil {
+      display: none;
+    }
+  }
+}
+
+
+//
+// Q & A
+//
+#plans-faq {
+  .contents-wrapper {
+    @include padding(1.4rem 1.2rem);
+
+    &:nth-child(2n) {
+      background: $bgcolor-gray;
+    }
+  }
+
+  .contents {
+    @include span-columns(6);
+    @include omega(2n);
+
+    a {
+      color: $bgcolor-green;
+      text-decoration: underline;
+    }
+  }
+
+  .contents-question {
+    position: relative;
+    @include padding(null null null 2.8rem);
+    font-size: 1.2rem;
+    font-weight: bold;
+    &:before {
+      content: 'Q';
+      position: absolute;
+      top: 2px;
+      left: 0;
+      line-height: 1;
+      font-family: 'Roboto';
+      font-size: 1.8rem;
+      font-weight: normal;
+      color: $bgcolor-green;
+      letter-spacing: .05rem;
+      @include transform(scale(1,1.15));
+    }
+  }
+
+  .contents-answer {
+    position: relative;
+    @include padding(null null null 2.8rem);
+    font-size: 1rem;
+    font-weight: normal;
+    &:before {
+      content: 'A';
+      position: absolute;
+      top: 0;
+      left: 0;
+      line-height: 1;
+      font-family: "Roboto";
+      font-size: 1.8rem;
+      font-weight: normal;
+      color: $bgcolor-orange;
+      letter-spacing: .05rem;
+      @include transform(scale(1,1.15));
+    }
+  }
+
+  @include media($tablet) {
+    .contents {
+      @include span-columns(12);
+      @include omega();
+    }
+    .contents-question {
+      @include margin(null null 1rem);
+    }
+  }
+}

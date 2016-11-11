@@ -1,0 +1,67 @@
+@charset "UTF-8";
+
+@import "variables";
+
+
+#login-main {
+  .contents {
+    @include span-columns(8);
+    @include shift(2);
+
+    &.contents-alert {
+      @include margin(null null modular-scale(0));
+      color: $bgcolor-red;
+      font-size: 1.1rem;
+    }
+
+    &.contents-input {
+      @include padding(modular-scale(2) modular-scale(3));
+      border: 1px solid $border-color-gray;
+      border-radius: 3px;
+    }
+  }
+
+  .message {
+    @include margin(null null modular-scale(1));
+    font-size: 1.1rem;
+  }
+  .domain-wrapper {
+    @include margin(null null modular-scale(2));
+
+    input {
+      display: inline-block;
+      width: calc(100% - 180px);
+      border: 1px solid transparent;
+      font-size: modular-scale(1);
+      text-align: right;
+      box-shadow: none;
+      background-color: $bgcolor-gray;
+      @include transition(all .2s ease-in-out);
+      @include placeholder {
+        color: #999;
+      }
+      &:focus {
+        box-shadow: none;
+        border-color: #c4c4c4;
+        background-color: $bgcolor-base;
+      }
+    }
+
+    span {
+      color: #777;
+      font-size: modular-scale(1);
+    }
+  }
+
+  .button-wrapper {
+    text-align: center;
+
+    button {
+      width: 300px;
+      @include padding(modular-scale(0) null);
+      line-height: 1;
+      font-size: .9rem;
+      background: $bgcolor-green;
+    }
+  }
+}
